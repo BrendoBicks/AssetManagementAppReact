@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./App.css";
+import { getAssets } from "./api/assetService";
+import Navbar from "./components/NavBar";
+import AssetManagement from "./pages/AssetManagement";
+import Welcome from "./pages/Welcome";
 
 function App() {
+  const getAssetList = async () => {
+    getAssets()
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <div style={{ padding: "20px" }}>
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/asset-management" element={<AssetManagement />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

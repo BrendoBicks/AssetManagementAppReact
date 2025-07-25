@@ -1,0 +1,25 @@
+.navbar {
+  background-color: #d9ddff;
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  a {
+    text-decoration: none;
+    color: black;
+
+    div {
+      display: block;
+      height: 40px;
+      padding: 10px;
+      justify-content: center;
+      align-content: center;
+
+      &:hover {
+        opacity: 0.5;
+        background-color: #eceefd;
+      }
+    }
+  }
+}
