@@ -6,16 +6,6 @@ import AssetManagement from "./pages/AssetManagement";
 import Welcome from "./pages/Welcome";
 
 function App() {
-  const getAssetList = async () => {
-    getAssets()
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-
   return (
     <Router>
       <Navbar />

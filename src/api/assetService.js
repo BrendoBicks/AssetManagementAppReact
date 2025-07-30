@@ -59,3 +59,7 @@ export const updateAssetStatus = (data) => {
 export const deleteAssetStatus = (id) => {
     return axiosInstance.delete(`/asset-status/${id}`);
 }
+
+export const getAssetListData = () => {
+    return axiosInstance.get('assets/list-data');
+}
